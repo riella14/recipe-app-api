@@ -105,9 +105,9 @@ class PrivateRecipeAPITests(TestCase):
         self.assertEqual(res.data, serializer.data)
 
     def test_create_recipe(self):
-        """"Test creating a recipe."""
+        """Test creating a recipe."""
         payload = {
-            'title': 'Sample Recipe',
+            'title': 'Sample recipe',
             'time_minutes': 30,
             'price': Decimal('5.99'),
         }
