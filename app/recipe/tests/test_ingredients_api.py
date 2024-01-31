@@ -44,8 +44,6 @@ class PrivateIngredientsApiTests(TestCase):
 
     def test_retrieve_ingredients(self):
         """Test retrieving a list of ingredients"""
-        # Ingredient.objects.create(user=self.user, name='Kale', quantity='10',  unit='ounces')
-        # Ingredient.objects.create(user=self.user, name='Vanilla', quantity='1',  unit='cup')
         kale = {'name': 'Kale', 'quantity': '10', 'unit': 'ounces'}
         vanilla = {'name': 'Vanilla', 'quantity': '1', 'unit': 'tablespoon'}
         Ingredient.objects.create(user=self.user, **kale)
