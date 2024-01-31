@@ -117,7 +117,7 @@ class PrivateIngredientsApiTests(TestCase):
 
     def test_delete_ingredient(self):
         """Test deleting an ingredient."""
-        ingredient =  Ingredient.objects.create(user=self.user, **{
+        ingredient = Ingredient.objects.create(user=self.user, **{
             'name': 'Lettuce',
             'quantity': '14',
             'unit': 'grams'})
