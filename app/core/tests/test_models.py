@@ -84,7 +84,11 @@ class ModelTests(TestCase):
         user = create_user()
         ingredient = models.Ingredient.objects.create(
             user=user,
-            name='Ingredients'
+            **{
+                'name': 'Custard',
+                'quantity': '8',
+                'unit': 'grams'
+            }
         )
 
         self.assertEqual(str(ingredient), ingredient.name)
