@@ -20,6 +20,7 @@ def detail_url(ingredient_id):
     """Create and return an ingredient detail url."""
     return reverse('recipe:ingredient-detail', args=[ingredient_id])
 
+
 def create_user(email='user@example.com', password='testpass123'):
     """"Create and return user."""
     return get_user_model().objects.create_user(email, password)
@@ -81,7 +82,7 @@ class PrivateIngredientsApiTests(TestCase):
         """Test updating an ingredient partially."""
         name = 'Cilantro'
         unit = 'leaves'
-        ingredient =  Ingredient.objects.create(user=self.user, **{
+        ingredient = Ingredient.objects.create(user=self.user, **{
             'name': name,
             'quantity': '2',
             'unit': unit})
@@ -99,7 +100,10 @@ class PrivateIngredientsApiTests(TestCase):
 
     def test_full_update_ingredient(self):
         """Test updating an ingredient partially."""
-        ingredient =  Ingredient.objects.create(user=self.user, **{'name': 'Cilantro', 'quantity': '2', 'unit': 'leaves'})
+        ingredient = Ingredient.objects.create(user=self.user, **{
+            'name': 'Cilantro',
+            'quantity': '2',
+            'unit': 'leaves'})
 
         payload = {'name': 'Basil', 'quantity': '5', 'unit': 'ounces'}
         url = detail_url(ingredient.id)

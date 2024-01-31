@@ -349,7 +349,9 @@ class PrivateRecipeAPITests(TestCase):
         recipe = create_recipe(user=self.user)
 
         payload = {
-            'ingredients': [{'name': 'Garlic', 'quantity': '1', 'unit': 'whole'}],
+            'ingredients': [
+                {'name': 'Garlic', 'quantity': '1', 'unit': 'whole'},
+                ],
             }
         url = detail_url(recipe.id)
         res = self.client.patch(url, payload, format='json')
@@ -375,7 +377,9 @@ class PrivateRecipeAPITests(TestCase):
             'quantity': '1',
             'unit': 'stick'})
         payload = {
-            'ingredients': [{'name': 'Butter', 'quantity': '1', 'unit': 'stick'}],
+            'ingredients': [
+                {'name': 'Butter', 'quantity': '1', 'unit': 'stick'},
+                ],
             }
         url = detail_url(recipe.id)
         res = self.client.patch(url, payload, format='json')
@@ -399,4 +403,3 @@ class PrivateRecipeAPITests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(recipe.ingredients.count(), 0)
-
