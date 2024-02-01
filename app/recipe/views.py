@@ -51,8 +51,7 @@ class BaseRecipeAttrViewSet(mixins.DestroyModelMixin,
             OpenApiParameter(
                 'ingredients',
                 OpenApiTypes.STR,
-                description=('Comma separated list of '
-                             'ingredient names to filter.'),
+                description='Comma separated list of ingredient names to filter.',
             )
         ]
     )
