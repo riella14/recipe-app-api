@@ -82,16 +82,14 @@ class RecipeViewSet(viewsets.ModelViewSet):
         if ingredients:
             ingredient_names = self._q_params(ingredients)
             ingredient_list = ingredient_names.split(',')
-            ingredient_queries = [Q(ingredients__name__icontains=name)
-                                  for name in ingredient_list]
+            ingredient_queries = [Q(ingredients__name__icontains=name) for name in ingredient_list]
             ingredient_filter = Q()
 
             for query in ingredient_queries:
                 ingredient_filter |= query
 
             queryset = queryset.filter(ingredient_filter)
-        return queryset.filter(user=self.request.user) \
-                       .order_by('-id').distinct()
+        return queryset.filter(user=self.request.user).order_by('-id').distinct()
 
     def get_serializer_class(self):
         """Return the serializer class for request."""
