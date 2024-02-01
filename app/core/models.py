@@ -94,8 +94,8 @@ class Ingredient(models.Model):
         on_delete=models.CASCADE,
     )
     name = models.CharField(max_length=255)
-    quantity = models.CharField(max_length=255, default='')
-    unit = models.CharField(max_length=255, default='')
+    quantity = models.CharField(max_length=255, default='', blank=True)
+    unit = models.CharField(max_length=255, default='', blank=True)
 
     def __str__(self):
         return self.name
