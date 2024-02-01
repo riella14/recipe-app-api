@@ -452,7 +452,6 @@ class PrivateRecipeAPITests(TestCase):
         params = {'ingredients': f'{in1.name},{in2.name}'}
         res = self.client.get(RECIPES_URL, params)
 
-
         s1 = RecipeSerializer(r1)
         s2 = RecipeSerializer(r2)
         s3 = RecipeSerializer(r3)

@@ -51,8 +51,7 @@ class BaseRecipeAttrViewSet(mixins.DestroyModelMixin,
             OpenApiParameter(
                 'ingredients',
                 OpenApiTypes.STR,
-                description=
-                'Comma separated list of ingredient names to filter.',
+                description='Comma separated list of ingredient names to filter.',
             )
         ]
     )
@@ -91,7 +90,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
                 ingredient_filter |= query
 
             queryset = queryset.filter(ingredient_filter)
-        return queryset.filter(user=self.request.user).order_by('-id').distinct()
+        return queryset.filter(user=self.request.user) \
+                       .order_by('-id').distinct()
 
     def get_serializer_class(self):
         """Return the serializer class for request."""
