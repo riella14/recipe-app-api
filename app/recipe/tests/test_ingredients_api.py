@@ -137,7 +137,8 @@ class PrivateIngredientsApiTests(TestCase):
     def test_filter_ingredients_assigned_to_recipes(self):
         """Test filtering ingredients by those assigned to recipes."""
         in1 = Ingredient.objects.create(user=self.user, name='Macaroni', quantity='2', unit='cups')
-        in2 = Ingredient.objects.create(user=self.user, name='Evaporated Milk', quantity='1', unit='can')
+        in2 = Ingredient.objects.create(user=self.user, name='Evaporated Milk',
+                                        quantity='1', unit='can')
         recipe = Recipe.objects.create(
             title='Sopas',
             time_minutes=45,
