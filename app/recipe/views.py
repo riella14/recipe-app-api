@@ -39,7 +39,7 @@ from recipe import serializers
                 'ingredients',
                 OpenApiTypes.STR,
                 description='Comma separated list of ingredient names to filter.',
-            )
+            ),
         ]
     )
 )
@@ -51,7 +51,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def _params_to_ints(self, qs):
-        """"Convert a list of strings to integers."""
+        """Convert a list of strings to integers."""
         return [int(str_id) for str_id in qs.split(',')]
 
     def _q_params(self, qs):
@@ -111,7 +111,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
                 'assigned_only',
                 OpenApiTypes.INT, enum=[0, 1],
                 description='Filter by items assigned to recipes',
-            )
+            ),
         ]
     )
 )
@@ -128,7 +128,7 @@ class BaseRecipeAttrViewSet(mixins.DestroyModelMixin,
         assigned_only = bool(
             int(self.request.query_params.get('assigned_only', 0))
         )
-        queryset = self.get_queryset
+        queryset = self.queryset
         if assigned_only:
             queryset = queryset.filter(recipe__isnull=False)
 
